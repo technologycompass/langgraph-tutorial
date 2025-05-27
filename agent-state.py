@@ -16,3 +16,6 @@ graph.add_node("greeting", greeting_node)
 graph.set_entry_point("greeting")
 graph.set_finish_point("greeting")
 app = graph.compile()
+# The app can now be used to manage the agent's state
+# For demonstration, we can print the nodes in the graph
+print("Graph nodes:", graph.nodes)
