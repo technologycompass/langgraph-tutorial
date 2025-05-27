@@ -17,5 +17,17 @@ graph.set_entry_point("greeting")
 graph.set_finish_point("greeting")
 app = graph.compile()
 # The app can now be used to manage the agent's state
-# For demonstration, we can print the nodes in the graph
-print("Graph nodes:", graph.nodes)
+
+#now display the graph in an image format
+import graphviz
+from IPython.display import display, Image
+display(Image(app.get_graph().draw_mermaid_png()))
+
+result = app.invoke(AgentState(message="Dilip"))
+
+
+result["message"]  # This will return the updated message with the greeting
+# Output: "Hey there! Dilip How can I help you today?"
+# Display the result
+print(result["message"])  # Output: "Hey there! Dilip How can I help you today?"
+# Display the graph
